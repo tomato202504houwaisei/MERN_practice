@@ -2,6 +2,8 @@ const mongoose = require("mongoose"); //載入 Mongoose 套件，之後你才能
 // 連MongoDB/建立 Schema/建立 Model/做資料 CRUD
 const { Schema } = mongoose;
 //從 mongoose 裡面取出 Schema 這個屬性，放進變數 Schema。
+const bcrypt = require("bcrypt");
+//bcrypt 是一個密碼雜湊（hash）函式庫，用來：把使用者密碼加密/比對加密後的密碼是否相同（登入時用）/確保資料庫不會存明碼
 
 const userSchema = new Schema({
   username: {
