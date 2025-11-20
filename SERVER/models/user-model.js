@@ -34,3 +34,18 @@ const userSchema = new Schema({
 });
 // enum用來限制 在 Schema 中用來「限制欄位的可選值」。
 // default 當欄位沒有提供值時，自動填入的預設值。
+
+// instance methods
+userSchema.methods.isStudent = function () {
+    return this.role == "student";
+};
+userSchema.methods.isInstructor = function () {
+    return this.role == "instructor";
+};
+
+// mongoose middlewares
+// 若使用者為新用戶 或是正在更改密碼 則將密碼進行雜湊處理
+userSchema.pre("save", async (next) => {
+    // this 代表mongoDB 內的 document
+    if (this.isNew )
+});
